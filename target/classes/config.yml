@@ -1,0 +1,3 @@
+caves:
+  - player: "[Server]"
+    content: "这是第一个回声洞！"

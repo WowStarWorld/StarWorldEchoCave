@@ -1,0 +1,13 @@
+name: EchoCave
+version: '1.0.0'
+main: tk.starworldstudio.echocave
+api-version: 1.18
+authors: [ StarWorld, xxtg666 ]
+description: Echo Cave Plugin
+website: https://www.starworldstudio.tk
+commands:
+  cave:
+    description: "回声洞"
+    usage: "§f│ §b/cave --- 随机回声洞\n§f│ §b/cave num  --- 回声洞总数\n§f│ §b/cave get <EchoCaveID> --- 查询回声洞\n§f│ §b/cave add <Content> --- 投稿回声洞，\"|\" 为换行符，\"—\" 为空格\n§f│ §b/cave del <EchoCaveID> --- 删除回声洞（需要管理员权限）"
+    aliases: [echo_cave,ecave,ec]
+
