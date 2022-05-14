@@ -15,28 +15,14 @@ jobs:
         with:
           java-version: 17
 
-      - name: Cache .gradle/caches
-        uses: actions/cache@v1
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-          restore-keys: ${{ runner.os }}-gradle-
+      - name: Build .class
+        run: mvn compile
 
-      - name: Cache .gradle/wrapper
-        uses: actions/cache@v1
-        with:
-          path: ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/*.gradle') }}
-          restore-keys: ${{ runner.os }}-gradle-wrapper-
-
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
-
-      - name: Build with Gradle
-        run: ./gradlew clean build -s
+      - name: Build .jar
+        run: mvn package
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: StarWorldEchoCave
-          path: build/libs/*.jar
+          path: target/*.jar
