@@ -21,7 +21,7 @@ public final class echocave extends JavaPlugin {
         // Plugin startup logice
         getLogger().info("Enabled !");
         saveDefaultConfig();
-        getLogger().info(""+ getCaves().toString().replaceAll("§",""));
+        getLogger().info(""+ getCaves().toString().replaceAll("§","&"));
     }
 
     @Override
