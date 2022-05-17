@@ -21,7 +21,7 @@ public final class echocave extends JavaPlugin {
         // Plugin startup logice
         getLogger().info("Enabled !");
         saveDefaultConfig();
-        getLogger().info(""+ getCaves());
+        getLogger().info(""+ getCaves().toString().replaceAll("§",""));
     }
 
     @Override
@@ -112,7 +112,6 @@ public final class echocave extends JavaPlugin {
                     broadcastMessage("§f│ §b回声洞投稿成功！");
                     int size = Caves.size()-1;
                     broadcastMessage("§f│ §b使用/cave get "+size+" 查看");
-
                     return true;
                 }
                 if (Objects.equals(args[0], "del")) {

@@ -1,5 +1,5 @@
 name: EchoCave
-version: '1.0.0'
+version: '1.0.1'
 main: tk.starworldstudio.echocave
 api-version: 1.18
 authors: [ StarWorld, xxtg666 ]
