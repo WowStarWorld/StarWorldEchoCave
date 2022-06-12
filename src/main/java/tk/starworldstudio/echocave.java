@@ -72,7 +72,7 @@ public final class echocave extends JavaPlugin {
                 if (sender instanceof Player) {
                     ((Player) sender).chat("./cave");
                 }
-                broadcastMessage("\n§f│ §b回声洞 —— ("+random+")\n§f│ \n§f│ §e"+lmap.get("content").toString().replace("—"," ").replace("|", "\n§f│ &e").replace("&","§")+"\n"+"§f│ §b—— "+lmap.get("player").toString());
+                broadcastMessage("\n§f│ §b回声洞 —— ("+random+")\n§f│ \n§f│ §e"+lmap.get("content").toString().replace("|", "\n§f│ &e").replace("&","§")+"\n"+"§f│ §b—— "+lmap.get("player").toString());
                 return true;
             }
             if (args.length == 1) {
@@ -84,16 +84,19 @@ public final class echocave extends JavaPlugin {
                     return true;
                 }
             }
-            else if (args.length == 2) {
+            else{
                 if (Objects.equals(args[0], "get")) {
                     LinkedHashMap lmap = (LinkedHashMap) getCaves().get(Integer.parseInt(args[1]));
                     if (sender instanceof Player) {
                         ((Player) sender).chat("./cave get " + args[1]);
                     }
-                    broadcastMessage("\n§f│ §b回声洞 —— ("+args[1]+")\n§f│ \n§f│ §e"+lmap.get("content").toString().replace("—"," ").replace("|", "\n§f│ &e").replace("&","§")+"\n"+"§f│ §b—— "+lmap.get("player").toString());
+                    broadcastMessage("\n§f│ §b回声洞 —— ("+args[1]+")\n§f│ \n§f│ §e"+lmap.get("content").toString().replace("|", "\n§f│ &e").replace("&","§")+"\n"+"§f│ §b—— "+lmap.get("player").toString());
                     return true;
                 }
                 if (Objects.equals(args[0], "add")) {
+                    List cave_content_list = Arrays.asList(Arrays.stream(args).toArray());
+                    cave_content_list = cave_content_list.subList(1, args.length);
+                    String cave_content = String.join(" ",cave_content_list);
                     LinkedHashMap lmap = new LinkedHashMap();
                     if (!(sender instanceof Player)) {
                         lmap.put("player", "[Server]");
@@ -101,13 +104,13 @@ public final class echocave extends JavaPlugin {
                     else {
                         lmap.put("player", ((Player) sender).getDisplayName());
                     }
-                    lmap.put("content", args[1]);
+                    lmap.put("content", cave_content);
                     List Caves = getCaves();
                     Caves.add(lmap);
                     getConfig().set("caves", Caves);
                     saveConfig();
                     if (sender instanceof Player) {
-                        ((Player) sender).chat("./cave add "+args[1]);
+                        ((Player) sender).chat("./cave add "+cave_content);
                     }
                     broadcastMessage("§f│ §b回声洞投稿成功！");
                     int size = Caves.size()-1;
