@@ -117,7 +117,7 @@ public final class echocave extends JavaPlugin {
                         getConfig().set("caves", Caves);
                         saveConfig();
                         sender.sendMessage("§f│ §b回声洞删除成功！");
-                        broadcastMessage("§e回声洞"+Integer.parseInt(args[1])+"被删除")
+                        broadcastMessage("§e回声洞"+Integer.parseInt(args[1])+"被删除");
 
                     }else {
                         sender.sendMessage("§f│ §c你没有权限删除！");
