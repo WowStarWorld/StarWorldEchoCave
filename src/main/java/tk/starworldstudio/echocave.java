@@ -103,7 +103,7 @@ public final class echocave extends JavaPlugin {
                     sender.sendMsg("§f│ §b回声洞投稿成功！");
                     int size = Caves.size()-1;
                     sender.sendMsg("§f│ §b使用/cave get "+size+" 查看");
-                    broadcastMessage("§e新的回声洞! ("+size+")")
+                    broadcastMessage("§e新的回声洞! ("+size+")");
                     return true;
                 }
                 if (Objects.equals(args[0], "del")) {
